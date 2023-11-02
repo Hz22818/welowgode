@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background: linear-gradient(to bottom, #ffffff, #cccccc); 
+  border: none;
+  color: white;
+  padding: 25px 42px; 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px; 
+  transition: all 0.2s ease-in-out; 
+}
+
+.button:hover {
+  transform: scale(1.1); 
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to bottom, #000000, #666666); 
+  font-family: Tahoma, sans-serif; 
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: white; 
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 20px;
+  color: white; 
+}
+
+.form {
+  display: none; 
+  margin-top: 20px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form input[type="text"]:required,
+.form input[type="email"]:required,
+.form input[type="password"]:required {
+  border: 2px solid red; 
+}
+
+.form button {
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="center">
+  <h1 class="title">Добро пожаловать</h1>
+  <button class="button" style="background: black;" onclick="showForm()">Регистрация</button>
+  <p class="subtitle">Уже есть аккаунт? Войдите</p>
+  <button class="button" style="background: black;" onclick="showLoginForm()">Вход</button>
+  <form class="form" id="registration-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+  <form class="form" id="login-form" style="display: none;">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Войти</button>
+  </form>
+</div>
+
+<script>
+function showForm() {
+  var form = document.getElementById("registration-form");
+  form.style.display = "block";
+  var loginForm = document.getElementById("login-form");
+  loginForm.style.display = "none"; 
+}
+
+function showLoginForm() {
+  var form = document.getElementById("login-form");
+  form.style.display = "block";
+  var registrationForm = document.getElementById("registration-form");
+  registrationForm.style.display = "none"; 
+}
+</script>
+
+</body>
+</html>
